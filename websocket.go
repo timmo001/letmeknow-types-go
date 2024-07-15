@@ -18,6 +18,13 @@ func (c *Client) Display() string {
 	return fmt.Sprintf("Client(Connection=%s, UserID=%s)", c.Connection.RemoteAddr(), *c.UserID)
 }
 
+type ClientType string
+
+const (
+	ClientTypeClient   ClientType = "client"
+	ClientTypeHeadless ClientType = "headless"
+)
+
 // TODO: Make sure registration contains password/token
 type RequestRegister struct {
 	Type   string `json:"type"` // "register"
